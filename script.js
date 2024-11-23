@@ -3,7 +3,7 @@
 particlesJS("background", {
     "particles": {
       "number": {
-        "value": 380,
+        "value": 200,
         "density": {
           "enable": true,
           "value_area": 800
@@ -29,34 +29,34 @@ particlesJS("background", {
       },
       "opacity": {
         "value": 0.5,
-        "random": false,
+        "random": true,
         "anim": {
-          "enable": false,
-          "speed": 1,
-          "opacity_min": 0.1,
+          "enable": true,
+          "speed": .1,
+          "opacity_min": 0.2,
           "sync": false
         }
       },
       "size": {
-        "value": 3,
+        "value": 1,
         "random": true,
         "anim": {
-          "enable": false,
-          "speed": 40,
-          "size_min": 0.1,
+          "enable": true,
+          "speed": 1,
+          "size_min": 0.5,
           "sync": false
         }
       },
       "line_linked": {
         "enable": true,
-        "distance": 150,
+        "distance": 160,
         "color": "#ffffff",
-        "opacity": 0.4,
+        "opacity": 0.8,
         "width": 1
       },
       "move": {
         "enable": true,
-        "speed": 6,
+        "speed": 4,
         "direction": "none",
         "random": false,
         "straight": false,
@@ -70,11 +70,11 @@ particlesJS("background", {
       }
     },
     "interactivity": {
-      "detect_on": "canvas",
+      "detect_on": "window",
       "events": {
         "onhover": {
           "enable": true,
-          "mode": "grab"
+          "mode": "bubble"
         },
         "onclick": {
           "enable": true,
@@ -130,4 +130,4 @@ particlesJS("background", {
     }
     requestAnimationFrame(update);
   };
-  requestAnimationFrame(update);
+  requestAnimationFrame(update); 
