@@ -121,25 +121,52 @@ document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll('a[href^="#"]');
 
   links.forEach(link => {
-    link.addEventListener("click", function (e) {
+  link.addEventListener("click", function (e) {
       e.preventDefault();
 
-      const targetId = this.getAttribute("href").substring(1);
-      const targetSection = document.getElementById(targetId);
-
-      if (targetSection) {
+  const targetId = this.getAttribute("href").substring(1);
+  const targetSection = document.getElementById(targetId);
+  
+  if (targetSection) {
     
-        const navbarHeight = document.querySelector(".navigation").offsetHeight;
-        const targetPosition = targetSection.offsetTop;
+  const navbarHeight = document.querySelector(".navigation").offsetHeight;
+  const targetPosition = targetSection.offsetTop;
 
     
-        window.scrollTo({
-          top: targetPosition - navbarHeight -30, 
-          behavior: "smooth",
-        });
-      }
-    });
-  });
+  window.scrollTo({
+  top: targetPosition - navbarHeight -30, 
+    behavior: "smooth",
+   });
+   }
+});
+});
 });
 
+
+
+
+
+// detects the scroll position, which will affect the navbar behavior
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navigation");
+  const welcomeSection = document.getElementById("welcome");
+  const aboutSection = document.getElementById("about");
+
+  const welcomeSectionTop = welcomeSection.getBoundingClientRect().top;
+  const aboutSectionTop = aboutSection.getBoundingClientRect().top;
+
+  // after the page is scrolled past the welcome section, show the navbar
+  if (welcomeSectionTop <= -100) {
+    navbar.classList.add("show"); // slide the navbar in after scrolling past the Welcome page
+  } else {
+    navbar.classList.remove("show"); // this then removes the sliding affectt
+  }
+
+  // then when the about me section reaches the top of the viewport, the navbar will fix to the top
+  if (aboutSectionTop <= 0) {
+    navbar.classList.add("fixed"); // Fix navbar to the top of the page
+  } else {
+    navbar.classList.remove("fixed");
+  }
+});
 
